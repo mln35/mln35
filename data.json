@@ -1,5 +1,5 @@
 {
-    "formation": [
+    "trainings": [
         {
             "grade": "Master",
             "domaine": "Informatique",
@@ -128,38 +128,40 @@
     ],
     "experience": [
         {
-            "grade": "Master",
-            "domaine": "Informatique",
-            "specialite": "Gestion de Données et Ingénierie Logicielle (GDIL)",
+            "type": "Stage",
+            "poste": "Développeur Informatique",
+            "sujet": "Développement de services digitaux d'aide à l'agriculture",
             "etablissement": {
-                "nom":"Université Gaston Berger (UGB)",
+                "nom":"Multiservices Agricoles",
+                "sigle": "MSA",
                 "ville":"Saint Louis"
             },
-            "annee": "2020",
-            "mention":"BIEN"
+            "annee": "2020-2021"
         },
         {
             "type": "Stage",
-            "poste": "Dev",
-            "specialite": "Gestion de Données et Ingénierie Logicielle (GDIL)",
+            "poste": "",
+            "sujet": "Développement de services digitaux d'aide à l'agriculture",
             "etablissement": {
-                "nom":"Université Gaston Berger (UGB)",
+                "nom":"Multiservices Agricoles",
+                "sigle": "MSA",
                 "ville":"Saint Louis"
             },
-            "annee": "2016",
-            "mention":"ASSEZ BIEN"
+            "annee": "2020-2021"
         },
         {
-            "grade": "BACCALAUREAT",
-            "domaine": "S1",
-            "specialite": "Mathématiques et Sciences Physiques",
+            "type": "Stage",
+            "poste": "Développeur Informatique",
+            "sujet": "Développement de services digitaux d'aide à l'agriculture",
             "etablissement": {
-                "nom":"Lycée Taïba-ICS",
-                "ville":"Mboro"
+                "nom":"Multiservices Agricoles",
+                "sigle": "MSA",
+                "ville":"Saint Louis"
             },
-            "annee": "2012",
-            "mention":""
+            "annee": "2020-2021"
         }
+        
+       
         
     ]
 }

@@ -1,5 +1,5 @@
 json_data = `{
-    "formation": [
+    "trainings": [
         {
             "grade": "Master",
             "domaine": "Informatique",
@@ -128,61 +128,125 @@ json_data = `{
     ],
     "experience": [
         {
-            "grade": "Master",
-            "domaine": "Informatique",
-            "specialite": "Gestion de Données et Ingénierie Logicielle (GDIL)",
+            "type": "Stage",
+            "poste": "Développeur Informatique",
+            "sujet": "Développement de services digitaux d'aide à l'agriculture",
             "etablissement": {
-                "nom":"Université Gaston Berger (UGB)",
+                "nom":"Multiservices Agricoles",
+                "sigle": "MSA",
                 "ville":"Saint Louis"
             },
-            "annee": "2020",
-            "mention":"BIEN"
+            "annee": "2020-2021"
         },
         {
             "type": "Stage",
-            "poste": "Dev",
-            "specialite": "Gestion de Données et Ingénierie Logicielle (GDIL)",
+            "poste": "",
+            "sujet": "Développement de services digitaux d'aide à l'agriculture",
             "etablissement": {
-                "nom":"Université Gaston Berger (UGB)",
+                "nom":"Multiservices Agricoles",
+                "sigle": "MSA",
                 "ville":"Saint Louis"
             },
-            "annee": "2016",
-            "mention":"ASSEZ BIEN"
+            "annee": "2020-2021"
         },
         {
-            "grade": "BACCALAUREAT",
-            "domaine": "S1",
-            "specialite": "Mathématiques et Sciences Physiques",
+            "type": "Stage",
+            "poste": "Développeur Informatique",
+            "sujet": "Développement de services digitaux d'aide à l'agriculture",
             "etablissement": {
-                "nom":"Lycée Taïba-ICS",
-                "ville":"Mboro"
+                "nom":"Multiservices Agricoles",
+                "sigle": "MSA",
+                "ville":"Saint Louis"
             },
-            "annee": "2012",
-            "mention":""
+            "annee": "2020-2021"
         }
-        
     ]
 }`;
 
+render = (element, txt) => {
+    let spec = document.createElement(element);
+    spec.innerHTML = txt;
+    return spec;
+}
+
 let data = JSON.parse(json_data);
 console.log(data);
-let training_dom = document.querySelector('.skills');
+///////////////////////////////////////////////////
+let skills_dom = document.querySelector('.skills');
 for (skill of data.skills){
     if(skill){
         console.log(skill);
         let skilldiv = document.createElement('div');
         skilldiv.classList.add('skilldiv');
-        let skilltitle = document.createElement('h4');
+        let skilltitle = document.createElement('ul');
         skilltitle.innerHTML = skill.nom;
         skilldiv.appendChild(skilltitle);
-        for (subskill of skill.subskills){
-            console.log(subskill)
-            let subskilldiv = document.createElement('div');
-            subskilldiv.classList.add('subskilldiv');
-            subskilldiv.innerHTML = subskill.nom;
-            skilldiv.appendChild(subskilldiv);
+        if(skill.subskills){
+            for (subskill of skill.subskills){
+                if (subskill){
+                    console.log(subskill)
+                    let subskilldiv = document.createElement('li');
+                    subskilldiv.classList.add('subskilldiv');
+                    subskilldiv.innerHTML = subskill.nom;
+                    skilldiv.appendChild(subskilldiv);
+                }
+            }
         }
-        training_dom.appendChild(skilldiv);
+        skills_dom.appendChild(skilldiv);
+    }
+}
+
+///////////////////////////////////////////////////
+let training_dom = document.querySelector('.trainings');
+for (training of data.trainings){
+    if(training){
+        console.log(training);
+
+        let t_div = document.createElement('div');
+        t_div.classList.add('trainingdiv');
+        
+        t_domain = render('ul',training.grade +' '+ training.domaine);
+
+        t_spec = render('li',training.specialite);
+
+        t_school = render('li',training.etablissement.nom + ' de '+training.etablissement.ville);
+
+        t_domain.appendChild(t_spec);
+
+        t_domain.appendChild(t_school);
+
+        t_div.appendChild(t_domain);
+        
+        training_dom.appendChild(t_div);
+    }
+}
+
+///////////////////////////////////////////////////
+let exp_dom = document.querySelector('.exp');
+for (exp of data.experience){
+    if(exp){
+        console.log(exp);
+
+        let e_div = document.createElement('div');
+        e_div.classList.add('expdiv');
+        
+        e_type = render('ul',exp.type);
+        
+        e_host = render('li',exp.etablissement.nom + ' ('+exp.etablissement.sigle+')');
+
+        e_poste = render('li',exp.poste);
+
+        e_sujet = render('li',exp.poste);
+
+        e_type.appendChild(e_host);
+
+        e_type.appendChild(e_poste);
+
+        e_type.appendChild(e_sujet);
+
+        e_div.appendChild(e_type);
+        
+        exp_dom.appendChild(e_div);
     }
 }
 
