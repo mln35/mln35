@@ -150,7 +150,7 @@ json_data = `{
         },
         {
             "type": "Stage",
-            "poste": "",
+            "poste": "Développeur Informatique (Recherche)",
             "sujet": "Développement de services digitaux d'aide à l'agriculture",
             "etablissement": {
                 "nom":"Multiservices Agricoles",
@@ -215,7 +215,7 @@ for (skill of data.skills){
         let skilldiv = document.createElement('div');
         skilldiv.classList.add('skilldiv');
         let skilltitle = document.createElement('ul');
-        skilltitle.innerHTML = skill.nom;
+        skilltitle.innerHTML = '<h5>'+skill.nom+'</h5>';
         skilldiv.appendChild(skilltitle);
         if(skill.subskills){
             for (subskill of skill.subskills){
@@ -241,7 +241,7 @@ for (training of data.trainings){
         let t_div = document.createElement('div');
         t_div.classList.add('trainingdiv');
         
-        t_domain = render('ul',training.grade +' '+ training.domaine);
+        t_domain = render('ul','<h5>'+training.grade +' '+ training.domaine+'</h5>');
 
         t_spec = render('li',training.specialite);
 
@@ -266,7 +266,7 @@ for (exp of data.experience){
         let e_div = document.createElement('div');
         e_div.classList.add('expdiv');
         
-        e_type = render('ul',exp.type);
+        e_type = render('ul','<h5>'+exp.type+'</h5>');
         
         e_host = render('li',exp.etablissement.nom + ' ('+exp.etablissement.sigle+')');
 
@@ -315,11 +315,11 @@ for (cont of data.contact){
     if(cont){
         console.log('cont'+cont);
         
-        tel = render('li','<i class="bi-phone"></i>' + cont.tel.mobile+' / '+cont.tel.work);
+        tel = render('li','<i class="bi-phone-fill"></i>' + cont.tel.mobile+' / '+cont.tel.work);
 
-        mail = render('li','<i class="bi-envelope"></i>' + cont.email);
+        mail = render('li','<i class="bi-envelope-fill"></i>' + cont.email);
 
-        ad = render('li','<i class="bi-geo-alt"></i>' + cont.adresse);
+        ad = render('li','<i class="bi-geo-alt-fill"></i>' + cont.adresse);
 
         contact.appendChild(tel);
 

@@ -17,6 +17,7 @@ body{
     margin: auto;
     padding: 0 !important;
     min-width:1000px;
+    
 }
 
 header{
@@ -62,16 +63,11 @@ i {
     font-weight: bolder;
     font-size: 15px;
 }
-@media screen and (max-width:960px) {
-    .container{
-        width: 100% !important;
-        background-color:rebeccapurple;
-    }
-    
-}
+
 .main{
     display:flex;
     justify-content:center;
+    flex-wrap: wrap;
 }
 
 .left{
@@ -79,11 +75,13 @@ i {
 }
 .right{
     width:50%;
-    border-left: solid 1px blue;
+    border-left: solid 2px blue;
+
 }
-ul{
+ul h5{
     font-weight: bold;
 }
+
 li{
     list-style:none;
     font-weight: normal;
@@ -92,9 +90,9 @@ li{
 h2{
     background-image: url('./img/h2.png');
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
     text-shadow:none ;
-    /* width:70%; */
+    width:27vw !important;
     height:30px;
     text-align: center;
     /* margin-bottom: 10px; */
@@ -111,7 +109,9 @@ h2{
     width:50%;
 }
 .left, .right{
-    padding-left:5%;
+    padding-left:20px;
+    padding-right:20px;
+
 }
 
 footer{
@@ -140,7 +140,66 @@ i{
     header{
         background-image: url('./img/head1.png');
         background-repeat: no-repeat;
-        background-size: 100%;
+        background-size: 100% 100% ;
     }   
 }
 
+@media screen and (max-width:960px) {
+    .title-head h1{
+        font-size:40px !important;
+    }
+    .title-head h3{
+        font-size:40px !important;
+    }
+   .title-head h5{
+        font-size:30px !important;
+    }
+    .container{
+        width: 100% !important;
+        /* background-color:rebeccapurple; */
+    }
+    h2{
+        width: 100% !important;
+        height:1.3em;
+        font-size: 50px !important;
+    }
+    .main{
+        display: block;
+        font-size:40px;
+
+    }
+    .left, .right{
+        border:none;
+        width: 100%;
+    }
+    .comp{
+        width: 100%;
+    }
+    
+    .social i{
+        font-size:40px !important;
+    }
+    .contactdiv{
+        margin-bottom:solid 1px blue; ;
+    }
+    .contactdiv i {
+        font-size:40px !important;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    /* ul{
+        display:flex;
+    } */
+    .comp li{
+        /* display: inline;
+        border: solid 1px blue;
+        border-radius: 10px;
+        margin: 10px;
+        padding: 5px; */
+    }
+    ul h5{
+        font-size:40px;
+        font-weight:bold;
+    }
+}
