@@ -118,12 +118,22 @@ json_data = `{
             ]
         },
         {
-            "nom": "",
-            "level": ""
-        },
-        {
-            "nom": "",
-            "level": ""
+            "nom": "Administration Système",
+            "level": "",
+            "subskills": [
+                {
+                    "nom": "Windows",
+                    "level": ""
+                },
+                {
+                    "nom": "Linux",
+                    "level": ""
+                },
+                {
+                    "nom": "MacOS",
+                    "level": ""
+                }
+            ]
         }
     ],
     "experience": [
@@ -160,6 +170,32 @@ json_data = `{
             },
             "annee": "2020-2021"
         }
+    ],
+    "languages":[
+        {
+            "language":"Wolof",
+            "level":""
+        },
+        {
+            "language":"Francais",
+            "level":""
+        },
+        {
+            "language":"Anglais",
+            "level":""
+        }
+    ],
+    "contact":[
+        {
+            "tel":
+            {
+                "mobile":"+221 77 206 01 01",
+                "work": "+221 76 586 10 86"
+            },
+            "email":"ndiaye.mouhamet-latyr@ugb.edu.sn",
+            "adresse":"Fogny, Tivaouane"
+
+        }
     ]
 }`;
 
@@ -172,7 +208,7 @@ render = (element, txt) => {
 let data = JSON.parse(json_data);
 console.log(data);
 ///////////////////////////////////////////////////
-let skills_dom = document.querySelector('.skills');
+let skills_dom = document.querySelector('.comp');
 for (skill of data.skills){
     if(skill){
         console.log(skill);
@@ -188,7 +224,7 @@ for (skill of data.skills){
                     let subskilldiv = document.createElement('li');
                     subskilldiv.classList.add('subskilldiv');
                     subskilldiv.innerHTML = subskill.nom;
-                    skilldiv.appendChild(subskilldiv);
+                    skilltitle.appendChild(subskilldiv);
                 }
             }
         }
@@ -216,7 +252,7 @@ for (training of data.trainings){
         t_domain.appendChild(t_school);
 
         t_div.appendChild(t_domain);
-        
+
         training_dom.appendChild(t_div);
     }
 }
@@ -248,5 +284,52 @@ for (exp of data.experience){
         
         exp_dom.appendChild(e_div);
     }
+}
+
+///////////////////////////////////////////////////
+let lang_dom = document.querySelector('.lang');
+let l_div = document.createElement('div');
+l_div.classList.add('langdiv');
+language = render('ul',"");
+for (lang of data.languages){
+    if(lang){
+        console.log('lang'+lang);
+        
+        l = render('li',lang.language);
+
+        language.appendChild(l);
+
+        l_div.appendChild(language);
+        
+    }
+    lang_dom.appendChild(l_div);
+}
+
+
+///////////////////////////////////////////////////
+let cont_dom = document.querySelector('.contact');
+let c_div = document.createElement('div');
+c_div.classList.add('contactdiv');
+contact = render('ul',"");
+for (cont of data.contact){
+    if(cont){
+        console.log('cont'+cont);
+        
+        tel = render('li','<i class="bi-phone"></i>' + cont.tel.mobile+' / '+cont.tel.work);
+
+        mail = render('li','<i class="bi-envelope"></i>' + cont.email);
+
+        ad = render('li','<i class="bi-geo-alt"></i>' + cont.adresse);
+
+        contact.appendChild(tel);
+
+        contact.appendChild(mail);
+
+        contact.appendChild(ad);
+
+        c_div.appendChild(contact);
+        
+    }
+    cont_dom.appendChild(c_div);
 }
 

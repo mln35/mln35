@@ -118,12 +118,22 @@
             ]
         },
         {
-            "nom": "",
-            "level": ""
-        },
-        {
-            "nom": "",
-            "level": ""
+            "nom": "Administration Système",
+            "level": "",
+            "subskills": [
+                {
+                    "nom": "Windows",
+                    "level": ""
+                },
+                {
+                    "nom": "Linux",
+                    "level": ""
+                },
+                {
+                    "nom": "MacOS",
+                    "level": ""
+                }
+            ]
         }
     ],
     "experience": [
@@ -160,8 +170,19 @@
             },
             "annee": "2020-2021"
         }
-        
-       
-        
+    ],
+    "langues":[
+        {
+            "langage":"Wolof",
+            "level":""
+        },
+        {
+            "langage":"Francais",
+            "level":""
+        },
+        {
+            "langage":"Anglais",
+            "level":""
+        }
     ]
 }
