@@ -11,10 +11,26 @@ body{
     text-shadow: 1px 0 1px rgb(221 210 255);
     /* box-shadow: 0px 0px 1px rgb(41, 29, 29); */
 }
-.download{
+#download{
+    font-size: 20px;
     /* margin: auto; */
     /* width: 5%; */
     position: fixed;
+    display:flex;
+    flex-direction: column;
+    /* border: solid 1px blue; */
+    border-radius: 15px;
+    /* background-color: cyan; */
+    padding: 5px 8px 4px 5px;
+    align-items: center;
+}
+
+#i_download {
+    font-weight: bold !important;
+    font-size: 18px !important;
+}
+span{
+    display:none;
 }
 .container {
     box-shadow: 0px 0px 1px rgb(41, 29, 29);
@@ -22,6 +38,8 @@ body{
     margin: auto;
     padding: 0 !important;
     /* min-width:1000px; */
+    margin-top: 30px;
+    margin-bottom: 30px;
     
 }
 
@@ -62,11 +80,17 @@ margin-left: 60px;
 align-self: center;
 }
 .title-head h3, .title-head h5{
+    font-size: 2vw;
     margin-top: 10px;
+}
+.title-head h3{
+    font-size: 2.3vw;
+    /* margin-bottom: 4px !important; */
 }
 .title-head h5{
     font-style: italic;
     color:#9898ff;
+    font-size: 1.7vw;
 }
 
 i {
@@ -202,8 +226,17 @@ i{
     .container{
         width:95% !important;
     }
+    .logo img{
+        margin-left: 0;
+    }
+    .title-head{
+        margin:0 !important;
+        margin-left: 0px !important;
+    }
     .title-head h1{
         font-size:40px !important;
+        width:100% !important;
+        
     }
     .title-head h3{
         font-size:40px !important;
@@ -219,7 +252,7 @@ i{
     }
 
     h2{
-        width: 100% !important;
+        width: 80% !important;
         height:1.3em;
         font-size: 30px !important;
     }
@@ -280,12 +313,14 @@ i{
     .container{
         font-family: Inter, sans-serif;
         width: 100% !important;
+        margin-top: 0;
+        margin-bottom: 0;
     }
     .title{
-        height:160px;
+        height:120px;
     }
     .logo img{
-        min-width: 160px;
+        min-width: 120px;
         }
         .social{
             display: none;
@@ -297,11 +332,17 @@ i{
     a[href]:after {
         content: none !important;
     }
+    #download{
+        display: none;
+    }
 }
 
 @media screen and (min-width:1170px) {
     .container{
         width:70% !important;
-
+        
+    }
+    span{
+        display: block;
     }
 }
