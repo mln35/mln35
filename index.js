@@ -37,6 +37,38 @@ json_data = `{
     ],
     "skills": [
         {
+            "nom": "Langages",
+            "level": "",
+            "subskills": [
+                {
+                    "nom": "PYTHON",
+                    "level": ""
+                },
+                {
+                    "nom": "JAVA",
+                    "level": ""
+                },
+                {
+                    "nom": "C++",
+                    "level": ""
+                },
+                
+                {
+                    "nom": "C",
+                    "level": ""
+                },
+                {
+                    "nom": "C#",
+                    "level": ""
+                },
+                {
+                    "nom": "JavaScript",
+                    "level": ""
+                }
+               
+            ]
+        },
+        {
             "nom": "Web front-end",
             "level": "",
             "subskills": [
@@ -87,7 +119,25 @@ json_data = `{
                 {
                     "nom": "SpringBoot",
                     "level": ""
+                },
+                {
+                    "nom": "Rest APIs",
+                    "level": ""
                 }
+            ]
+        },
+        {
+            "nom": "Mobile",
+            "level": "",
+            "subskills": [
+                {
+                    "nom": "Android",
+                    "level": ""
+                },
+                {
+                    "nom": "Flutter",
+                    "level": ""
+                }               
             ]
         },
         {
@@ -96,6 +146,10 @@ json_data = `{
             "subskills": [
                 {
                     "nom": "MySQL",
+                    "level": ""
+                },
+                {
+                    "nom": "PostgreSQL",
                     "level": ""
                 },
                 {
@@ -134,55 +188,137 @@ json_data = `{
                     "level": ""
                 }
             ]
+        },
+        {
+            "nom": "Intelligence Artificielle",
+            "level": "",
+            "subskills": [
+                {
+                    "nom": "Réseaux Neuronaux",
+                    "level": ""
+                },
+                {
+                    "nom": "Machine Learning",
+                    "level": ""
+                },
+                {
+                    "nom": "Deep Learning",
+                    "level": ""
+                }
+            ]
+        },
+        {
+            "nom": "Analyse de données",
+            "level": "",
+            "subskills": [
+                {
+                    "nom": "Big Data (Hadoop)",
+                    "level": ""
+                },
+                {
+                    "nom": "Data-Mining(Weka)",
+                    "level": ""
+                },
+                {
+                    "nom": "Talend",
+                    "level": ""
+                }
+            ]
+        },
+        
+        {
+            "nom": "Domaines de recherche",
+            "level": "",
+            "subskills": [
+                {
+                    "nom": "IoT",
+                    "level": ""
+                },
+                {
+                    "nom": "Complex Event Processing",
+                    "level": ""
+                },
+                {
+                    "nom": "Stream Reasoning",
+                    "level": ""
+                }
+            ]
+        },
+        {
+            "nom": "Centres d'intérêt",
+            "level": "",
+            "subskills": [
+                {
+                    "nom": "IA",
+                    "level": ""
+                },{
+                    "nom": "Systèmes embarqués",
+                    "level": ""
+                },
+                {
+                    "nom": "Smart Home",
+                    "level": ""
+                },
+                {
+                    "nom": "Open Source",
+                    "level": ""
+                },
+                {
+                    "nom": "Hacking",
+                    "level": ""
+                }
+            ]
         }
     ],
     "experience": [
         {
             "type": "Stage",
-            "poste": "Développeur Informatique",
-            "sujet": "Développement de services digitaux d'aide à l'agriculture",
+            "poste": "Analyste Programmeur",
+            "sujet": "Conception et développement de services digitaux d'aide à l'agriculture",
             "etablissement": {
-                "nom":"Multiservices Agricoles",
+                "nom":"Multiservices Agricoles (MSA)",
                 "sigle": "MSA",
-                "ville":"Saint Louis"
+                "ville":"Rosso"
             },
             "annee": "2020-2021"
         },
         {
             "type": "Stage",
-            "poste": "Développeur Informatique (Recherche)",
-            "sujet": "Développement de services digitaux d'aide à l'agriculture",
+            "poste": "Développeur, Concepteur",
+            "sujet": "Développement d’un réseau de capteurs-intelligents pour le contrôle et la gestion de la qualité de l’épuration des eaux usées domestiques",
             "etablissement": {
-                "nom":"Multiservices Agricoles",
-                "sigle": "MSA",
-                "ville":"Saint Louis"
+                "departement":"Laboratoire d’Informatique, Image et Interaction (L3I)",
+                "nom":"Université La Rochelle, France",
+                "sigle": "",
+                "ville":"La Rochelle",
+                "pays":"France"
             },
-            "annee": "2020-2021"
+            "annee": "2019-2020"
         },
         {
             "type": "Stage",
             "poste": "Développeur Informatique",
-            "sujet": "Développement de services digitaux d'aide à l'agriculture",
+            "sujet": "Développement d’une application pour la gestion des dossiers de l’entreprise",
             "etablissement": {
-                "nom":"Multiservices Agricoles",
-                "sigle": "MSA",
-                "ville":"Saint Louis"
+                "nom":"CCBM Industries - Espace Auto",
+                "sigle": "CCBM",
+                "ville":"Dakar"
             },
-            "annee": "2020-2021"
+            "annee": "2015"
         }
     ],
     "languages":[
         {
             "language":"Wolof",
-            "level":""
+            "level":"Maternelle"
         },
         {
             "language":"Francais",
-            "level":""
+            "level":"Professionelle"
         },
         {
             "language":"Anglais",
-            "level":""
+            "level":"Bon niveau"
         }
     ],
     "contact":[
@@ -197,7 +333,8 @@ json_data = `{
 
         }
     ]
-}`;
+}
+`;
 
 render = (element, txt) => {
     let spec = document.createElement(element);
@@ -240,8 +377,10 @@ for (training of data.trainings){
 
         let t_div = document.createElement('div');
         t_div.classList.add('trainingdiv');
-        
-        t_domain = render('ul','<h5>'+training.grade +' '+ training.domaine+'</h5>');
+        if(training.mention)
+            t_domain = render('ul',`<h5>${training.annee}: ${training.grade} ${training.domaine} (Mention ${training.mention})</h5>`);
+        else
+            t_domain = render('ul',`<h5>${training.annee}: ${training.grade} ${training.domaine}</h5>`);
 
         t_spec = render('li',training.specialite);
 
@@ -265,22 +404,32 @@ for (exp of data.experience){
 
         let e_div = document.createElement('div');
         e_div.classList.add('expdiv');
-        
-        e_type = render('ul','<h5>'+exp.type+'</h5>');
-        
-        e_host = render('li',exp.etablissement.nom + ' ('+exp.etablissement.sigle+')');
+        // t_school = render('li',`${training.etablissement.departement} de l'${training.etablissement.nom} de ${training.etablissement.ville}`);
 
-        e_poste = render('li',exp.poste);
+        if(exp.etablissement.departement)
+            e_type = render('ul',`<h5>${exp.annee} ${exp.type} : ${exp.poste}</h5> <h6>${exp.etablissement.departement} de l'${exp.etablissement.nom} </h6>`);
+        else
+            e_type = render('ul',`<h5>${exp.annee} ${exp.type} : ${exp.poste}</h5> <h6>${exp.etablissement.nom} </h6>`);
 
-        e_sujet = render('li',exp.poste);
+        // e_host = render('li',exp.etablissement.nom + ' ('+exp.etablissement.sigle+')');
 
-        e_type.appendChild(e_host);
+        // e_poste = render('li',exp.poste);
 
-        e_type.appendChild(e_poste);
+        e_sujet = render('li',`<em>${exp.sujet}</em>`);
+
+        // e_annee = render('li',exp.annee);
+
+        // e_type.appendChild(e_host);
+
+        // e_type.appendChild(e_poste);
 
         e_type.appendChild(e_sujet);
 
+        // e_type.appendChild(e_annee);
+
         e_div.appendChild(e_type);
+        
+
         
         exp_dom.appendChild(e_div);
     }
@@ -315,9 +464,9 @@ for (cont of data.contact){
     if(cont){
         console.log('cont'+cont);
         
-        tel = render('li','<i class="bi-phone-fill"></i>' + cont.tel.mobile+' / '+cont.tel.work);
+        tel = render('li',`<i class="bi-phone-fill"></i>  <a href="tel:${cont.tel.mobile}">${cont.tel.mobile}</a> / <a href="tel:${cont.tel.work}">${cont.tel.work}</a>`);
 
-        mail = render('li','<i class="bi-envelope-fill"></i>' + cont.email);
+        mail = render('li',`<i class="bi-envelope-fill"></i> <a href="mailto:${cont.email}">${cont.email}</a>`);
 
         ad = render('li','<i class="bi-geo-alt-fill"></i>' + cont.adresse);
 
@@ -333,3 +482,23 @@ for (cont of data.contact){
     cont_dom.appendChild(c_div);
 }
 
+//TODO
+/*
+projects
+link to skills
+galerie
+certificates
+*/
+
+
+// function myFunction(x) {
+//     if (x.matches) { // If media query matches
+//       document.body.style.backgroundColor = "yellow";
+//     } else {
+//       document.body.style.backgroundColor = "pink";
+//     }
+//   }
+  
+//   var x = window.matchMedia("@ media ")
+//   myFunction(x) // Call listener function at run time
+//   x.addEventListener('change',myFunction) // Attach listener function on state changes
