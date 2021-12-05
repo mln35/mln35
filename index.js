@@ -336,6 +336,7 @@ json_data = `{
 }
 `;
 
+
 render = (element, txt) => {
     let spec = document.createElement(element);
     spec.innerHTML = txt;
@@ -343,12 +344,10 @@ render = (element, txt) => {
 }
 
 let data = JSON.parse(json_data);
-console.log(data);
 ///////////////////////////////////////////////////
 let skills_dom = document.querySelector('.comp');
 for (skill of data.skills){
     if(skill){
-        console.log(skill);
         let skilldiv = document.createElement('div');
         skilldiv.classList.add('skilldiv');
         let skilltitle = document.createElement('ul');
@@ -357,7 +356,6 @@ for (skill of data.skills){
         if(skill.subskills){
             for (subskill of skill.subskills){
                 if (subskill){
-                    console.log(subskill)
                     let subskilldiv = document.createElement('li');
                     subskilldiv.classList.add('subskilldiv');
                     subskilldiv.innerHTML = subskill.nom;
@@ -373,8 +371,6 @@ for (skill of data.skills){
 let training_dom = document.querySelector('.trainings');
 for (training of data.trainings){
     if(training){
-        console.log(training);
-
         let t_div = document.createElement('div');
         t_div.classList.add('trainingdiv');
         if(training.mention)
@@ -400,8 +396,6 @@ for (training of data.trainings){
 let exp_dom = document.querySelector('.exp');
 for (exp of data.experience){
     if(exp){
-        console.log(exp);
-
         let e_div = document.createElement('div');
         e_div.classList.add('expdiv');
         // t_school = render('li',`${training.etablissement.departement} de l'${training.etablissement.nom} de ${training.etablissement.ville}`);
@@ -442,7 +436,6 @@ l_div.classList.add('langdiv');
 language = render('ul',"");
 for (lang of data.languages){
     if(lang){
-        console.log('lang'+lang);
         
         l = render('li',lang.language);
 
@@ -462,7 +455,6 @@ c_div.classList.add('contactdiv');
 contact = render('ul',"");
 for (cont of data.contact){
     if(cont){
-        console.log('cont'+cont);
         
         tel = render('li',`<i class="bi-phone-fill"></i>  <a href="tel:${cont.tel.mobile}">${cont.tel.mobile}</a> / <a href="tel:${cont.tel.work}">${cont.tel.work}</a>`);
 
@@ -502,3 +494,7 @@ certificates
 //   var x = window.matchMedia("@ media ")
 //   myFunction(x) // Call listener function at run time
 //   x.addEventListener('change',myFunction) // Attach listener function on state changes
+
+print = function(){
+    window.print();
+}
