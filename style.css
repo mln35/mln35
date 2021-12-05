@@ -320,7 +320,7 @@ i{
 @media print {
 
     body{
-        margin-top: 15px !important;
+        margin-top:30px !important;
     }
     .container{
         font-family: Inter, sans-serif;
@@ -348,6 +348,6 @@ i{
         display: none;
     }
     footer{
-        height:85px;
+        height:60px;
     }
 }
