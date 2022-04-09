@@ -1,6 +1,17 @@
 {
     "trainings": [
         {
+            "grade": "Bootcamp PSEJ",
+            "domaine": "Informatique",
+            "specialite": "MEAN STACK (MongoDB, ExpressJS, Angular, NodeJS)",
+            "etablissement": {
+                "nom":"Upgarade Code",
+                "ville":"Tunisie"
+            },
+            "annee": "2020",
+            "mention":"BIEN"
+        },
+        {
             "grade": "Master",
             "domaine": "Informatique",
             "specialite": "Gestion de Données et Ingénierie Logicielle (GDIL)",

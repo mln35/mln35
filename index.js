@@ -1,6 +1,17 @@
 json_data = `{
     "trainings": [
         {
+            "grade": "Bootcamp Dev. web",
+            "domaine": "",
+            "specialite": "MEAN STACK (MongoDB, ExpressJS, Angular, NodeJS)",
+            "etablissement": {
+                "nom":"Upgarade Code",
+                "ville":"Tunisie (Online)"
+            },
+            "annee": "2021-2022",
+            "psej":true
+        },
+        {
             "grade": "Master",
             "domaine": "Informatique",
             "specialite": "Gestion de Données et Ingénierie Logicielle (GDIL)",
@@ -198,11 +209,7 @@ json_data = `{
                     "level": ""
                 },
                 {
-                    "nom": "Machine Learning",
-                    "level": ""
-                },
-                {
-                    "nom": "Deep Learning",
+                    "nom": "Réseaux Convolutifs",
                     "level": ""
                 }
             ]
@@ -258,14 +265,6 @@ json_data = `{
                 {
                     "nom": "Smart Home",
                     "level": ""
-                },
-                {
-                    "nom": "Open Source",
-                    "level": ""
-                },
-                {
-                    "nom": "Hacking",
-                    "level": ""
                 }
             ]
         }
@@ -310,11 +309,11 @@ json_data = `{
     "languages":[
         {
             "language":"Wolof",
-            "level":"Maternelle"
+            "level":"Maternel"
         },
         {
             "language":"Francais",
-            "level":"Professionelle"
+            "level":"Professionel"
         },
         {
             "language":"Anglais",
@@ -380,7 +379,11 @@ for (training of data.trainings){
 
         t_spec = render('li',training.specialite);
 
-        t_school = render('li',training.etablissement.nom + ' de '+training.etablissement.ville);
+        if(training.psej)
+            t_school = render('li',training.etablissement.nom + ' - '+training.etablissement.ville);
+        else
+            t_school = render('li',training.etablissement.nom + ' de '+training.etablissement.ville);
+
 
         t_domain.appendChild(t_spec);
 
@@ -434,18 +437,31 @@ let lang_dom = document.querySelector('.lang');
 let l_div = document.createElement('div');
 l_div.classList.add('langdiv');
 language = render('ul',"");
+r=`<table>`
 for (lang of data.languages){
+    
     if(lang){
-        
-        l = render('li',lang.language);
+        r+=`<tr><td>${lang.language} &nbsp;&nbsp;&nbsp; </td><td>:&nbsp;&nbsp;&nbsp;${lang.level}</td></tr>`
+        // l = render('li',`${lang.language} : ${lang.level}`);
 
-        language.appendChild(l);
+        // language.appendChild(l);
 
-        l_div.appendChild(language);
+        // l_div.appendChild(language);
         
     }
-    lang_dom.appendChild(l_div);
+    
+   
 }
+r += '</table class=\"table\">'
+l = render('li',r);
+
+language.appendChild(l);
+
+l_div.appendChild(language);
+
+lang_dom.appendChild(l_div);
+
+
 
 
 ///////////////////////////////////////////////////
