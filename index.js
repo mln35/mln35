@@ -272,6 +272,15 @@ json_data = `{
     "experience": [
         {
             "type": "Stage",
+            "poste": "Develppeur Web",
+            "sujet": "Créer un moteur de blog basé sur Wordpress pour publier sur le site de tourisfair.de et sur les publication de Tourisfair sur medium.com",
+            "etablissement": {
+                "nom":"Tourisfair UG"
+            },
+            "annee": "2022"
+        },
+        {
+            "type": "Stage",
             "poste": "Analyste Programmeur",
             "sujet": "Conception et développement de services digitaux d'aide à l'agriculture",
             "etablissement": {
